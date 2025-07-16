@@ -1,0 +1,38 @@
+[0.398s] Invoking command in '/home/li/ros2_ws/build/dummy-ros2_description': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/li/ros2_ws/build/dummy-ros2_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/li/ros2_ws/install/dummy-ros2_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/li/ros2_ws/build/dummy-ros2_description/build --no-deps symlink_data --force
+[0.543s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[0.543s]   warnings.warn(
+[0.567s] running develop
+[0.678s] running egg_info
+[0.678s] writing dummy_ros2_description.egg-info/PKG-INFO
+[0.678s] writing dependency_links to dummy_ros2_description.egg-info/dependency_links.txt
+[0.678s] writing entry points to dummy_ros2_description.egg-info/entry_points.txt
+[0.678s] writing requirements to dummy_ros2_description.egg-info/requires.txt
+[0.678s] writing top-level names to dummy_ros2_description.egg-info/top_level.txt
+[0.680s] reading manifest file 'dummy_ros2_description.egg-info/SOURCES.txt'
+[0.681s] writing manifest file 'dummy_ros2_description.egg-info/SOURCES.txt'
+[0.681s] running build_ext
+[0.681s] Creating /home/li/ros2_ws/install/dummy-ros2_description/lib/python3.10/site-packages/dummy-ros2-description.egg-link (link to .)
+[0.682s] 
+[0.682s] Installed /home/li/ros2_ws/build/dummy-ros2_description
+[0.682s] running symlink_data
+[0.682s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/resource/dummy-ros2_description -> /home/li/ros2_ws/install/dummy-ros2_description/share/ament_index/resource_index/packages
+[0.682s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/package.xml -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description
+[0.682s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/launch/gazebo.launch.py -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/launch
+[0.682s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/launch/display.launch.py -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/launch
+[0.682s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/urdf/materials.xacro -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/urdf
+[0.682s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/urdf/dummy-ros2.xacro -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/urdf
+[0.682s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/urdf/dummy-ros2.trans -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/urdf
+[0.682s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/urdf/dummy-ros2.gazebo -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/urdf
+[0.682s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/link1_1_1.stl -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.682s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/frames_2025-04-20_15.12.18.gv -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.683s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/link5_1_1.stl -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.683s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/link4_1_1.stl -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.683s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/base_link.stl -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.683s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/frames_2025-04-20_15.20.01.pdf -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.683s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/link6_1_1.stl -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.683s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/link3_1_1.stl -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.683s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/frames_2025-04-20_15.12.18.pdf -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.683s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/frames_2025-04-20_15.20.01.gv -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.683s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/meshes/link2_1_1.stl -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/meshes
+[0.683s] symbolically linking /home/li/ros2_ws/build/dummy-ros2_description/config/display.rviz -> /home/li/ros2_ws/install/dummy-ros2_description/share/dummy-ros2_description/config
+[0.699s] Invoked command in '/home/li/ros2_ws/build/dummy-ros2_description' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/li/ros2_ws/build/dummy-ros2_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/li/ros2_ws/install/dummy-ros2_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/li/ros2_ws/build/dummy-ros2_description/build --no-deps symlink_data --force

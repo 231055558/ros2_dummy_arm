@@ -1,0 +1,29 @@
+[0.373s] Invoking command in '/home/li/ros2_ws/build/dummy_controller': PYTHONPATH=/home/li/ros2_ws/build/dummy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/li/ros2_ws/build/dummy_controller/build --no-deps symlink_data
+[0.531s] running develop
+[0.640s] running egg_info
+[0.640s] creating dummy_controller.egg-info
+[0.640s] writing dummy_controller.egg-info/PKG-INFO
+[0.640s] writing dependency_links to dummy_controller.egg-info/dependency_links.txt
+[0.641s] writing entry points to dummy_controller.egg-info/entry_points.txt
+[0.641s] writing requirements to dummy_controller.egg-info/requires.txt
+[0.641s] writing top-level names to dummy_controller.egg-info/top_level.txt
+[0.641s] writing manifest file 'dummy_controller.egg-info/SOURCES.txt'
+[0.643s] reading manifest file 'dummy_controller.egg-info/SOURCES.txt'
+[0.643s] writing manifest file 'dummy_controller.egg-info/SOURCES.txt'
+[0.644s] running build_ext
+[0.644s] Creating /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy-controller.egg-link (link to .)
+[0.644s] Installing add_collision_object script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+[0.644s] Installing dummy_arm_controller script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+[0.644s] Installing moveit_server script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+[0.644s] 
+[0.644s] Installed /home/li/ros2_ws/build/dummy_controller
+[0.645s] running symlink_data
+[0.645s] creating /home/li/ros2_ws/install/dummy_controller/share/ament_index
+[0.645s] creating /home/li/ros2_ws/install/dummy_controller/share/ament_index/resource_index
+[0.645s] creating /home/li/ros2_ws/install/dummy_controller/share/ament_index/resource_index/packages
+[0.645s] symbolically linking /home/li/ros2_ws/build/dummy_controller/resource/dummy_controller -> /home/li/ros2_ws/install/dummy_controller/share/ament_index/resource_index/packages
+[0.645s] symbolically linking /home/li/ros2_ws/build/dummy_controller/package.xml -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller
+[0.645s] creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_cli_tool
+[0.645s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/zadig-2.5.exe -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_cli_tool
+[0.645s] error: can't copy '/home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/_addition': doesn't exist or not a regular file
+[0.659s] Invoked command in '/home/li/ros2_ws/build/dummy_controller' returned '1': PYTHONPATH=/home/li/ros2_ws/build/dummy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/li/ros2_ws/build/dummy_controller/build --no-deps symlink_data

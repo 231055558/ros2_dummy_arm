@@ -1,0 +1,6 @@
+[0.000000] (-) TimerEvent: {}
+[0.000278] (-) JobUnselected: {'identifier': 'dummy-ros2_description'}
+[0.000300] (-) JobUnselected: {'identifier': 'dummy_controller'}
+[0.000313] (-) JobUnselected: {'identifier': 'dummy_moveit_config'}
+[0.000328] (-) JobUnselected: {'identifier': 'pymoveit2'}
+[0.000439] (-) EventReactorShutdown: {}

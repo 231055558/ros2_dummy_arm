@@ -1,0 +1,52 @@
+running develop
+running egg_info
+creating dummy_controller.egg-info
+writing dummy_controller.egg-info/PKG-INFO
+writing dependency_links to dummy_controller.egg-info/dependency_links.txt
+writing entry points to dummy_controller.egg-info/entry_points.txt
+writing requirements to dummy_controller.egg-info/requires.txt
+writing top-level names to dummy_controller.egg-info/top_level.txt
+writing manifest file 'dummy_controller.egg-info/SOURCES.txt'
+reading manifest file 'dummy_controller.egg-info/SOURCES.txt'
+writing manifest file 'dummy_controller.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy-controller.egg-link (link to .)
+Installing add_collision_object script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+Installing dummy_arm_controller script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+Installing moveit_server script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+
+Installed /home/li/ros2_ws/build/dummy_controller
+running symlink_data
+creating /home/li/ros2_ws/install/dummy_controller/share/ament_index
+creating /home/li/ros2_ws/install/dummy_controller/share/ament_index/resource_index
+creating /home/li/ros2_ws/install/dummy_controller/share/ament_index/resource_index/packages
+symbolically linking /home/li/ros2_ws/build/dummy_controller/resource/dummy_controller -> /home/li/ros2_ws/install/dummy_controller/share/ament_index/resource_index/packages
+symbolically linking /home/li/ros2_ws/build/dummy_controller/package.xml -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller
+creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller
+creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/zadig-2.5.exe -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/__init__.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/run_shell.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/run.bat -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/.gitignore -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/_addition
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/_addition/__init__.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/_addition
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/_addition/ref_demo.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/_addition
+creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/udp_transport.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/remote_object.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/serial_transport.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/utils.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/discovery.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/protocol.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/__init__.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/shell.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/tcp_transport.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/usbbulk_transport.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/configuration.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/utils.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/__init__.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/shell.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/code_generator.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/version.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool

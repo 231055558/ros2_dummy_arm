@@ -1,0 +1,84 @@
+[0.396s] Invoking command in '/home/li/ros2_ws/build/dummy_controller': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/li/ros2_ws/build/dummy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/li/ros2_ws/build/dummy_controller/build
+[0.548s] running develop
+[0.653s] Removing /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy-controller.egg-link (link to .)
+[0.667s] Invoked command in '/home/li/ros2_ws/build/dummy_controller' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/li/ros2_ws/build/dummy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/li/ros2_ws/build/dummy_controller/build
+[0.669s] Invoking command in '/home/li/ros2_ws/src/dummy_controller': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/li/ros2_ws/build/dummy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dummy_controller build --build-base /home/li/ros2_ws/build/dummy_controller/build install --record /home/li/ros2_ws/build/dummy_controller/install.log --single-version-externally-managed install_data --force
+[0.813s] running egg_info
+[0.814s] writing ../../build/dummy_controller/dummy_controller.egg-info/PKG-INFO
+[0.814s] writing dependency_links to ../../build/dummy_controller/dummy_controller.egg-info/dependency_links.txt
+[0.814s] writing entry points to ../../build/dummy_controller/dummy_controller.egg-info/entry_points.txt
+[0.814s] writing requirements to ../../build/dummy_controller/dummy_controller.egg-info/requires.txt
+[0.814s] writing top-level names to ../../build/dummy_controller/dummy_controller.egg-info/top_level.txt
+[0.816s] reading manifest file '../../build/dummy_controller/dummy_controller.egg-info/SOURCES.txt'
+[0.816s] writing manifest file '../../build/dummy_controller/dummy_controller.egg-info/SOURCES.txt'
+[0.817s] running build
+[0.817s] running build_py
+[0.817s] copying dummy_controller/dummy_arm_controller.py -> /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller
+[0.817s] copying dummy_controller/dummy_cli_tool/fibre/discovery.py -> /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre
+[0.817s] copying dummy_controller/dummy_cli_tool/ref_tool/__init__.py -> /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/ref_tool
+[0.818s] running install
+[0.818s] running install_lib
+[0.818s] creating /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller
+[0.818s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/moveit_server.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller
+[0.818s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_arm_controller.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller
+[0.818s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/add_collision_object.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller
+[0.818s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/__init__.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller
+[0.818s] creating /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool
+[0.818s] creating /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/_addition
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/_addition/__init__.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/_addition
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/_addition/ref_demo.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/_addition
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/__init__.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool
+[0.819s] creating /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre/udp_transport.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre/remote_object.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre/serial_transport.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre/utils.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre/discovery.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre/protocol.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre/__init__.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre/shell.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre/tcp_transport.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/fibre/usbbulk_transport.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/run_shell.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool
+[0.819s] creating /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/ref_tool/configuration.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool
+[0.819s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/ref_tool/utils.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool
+[0.820s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/ref_tool/__init__.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool
+[0.820s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/ref_tool/shell.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool
+[0.820s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/ref_tool/code_generator.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool
+[0.820s] copying /home/li/ros2_ws/build/dummy_controller/build/lib/dummy_controller/dummy_cli_tool/ref_tool/version.py -> /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool
+[0.820s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/moveit_server.py to moveit_server.cpython-310.pyc
+[0.820s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_arm_controller.py to dummy_arm_controller.cpython-310.pyc
+[0.821s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/add_collision_object.py to add_collision_object.cpython-310.pyc
+[0.821s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/__init__.py to __init__.cpython-310.pyc
+[0.821s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/_addition/__init__.py to __init__.cpython-310.pyc
+[0.821s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/_addition/ref_demo.py to ref_demo.cpython-310.pyc
+[0.821s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/__init__.py to __init__.cpython-310.pyc
+[0.822s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre/udp_transport.py to udp_transport.cpython-310.pyc
+[0.822s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre/remote_object.py to remote_object.cpython-310.pyc
+[0.823s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre/serial_transport.py to serial_transport.cpython-310.pyc
+[0.823s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre/utils.py to utils.cpython-310.pyc
+[0.824s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre/discovery.py to discovery.cpython-310.pyc
+[0.824s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre/protocol.py to protocol.cpython-310.pyc
+[0.825s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre/__init__.py to __init__.cpython-310.pyc
+[0.825s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre/shell.py to shell.cpython-310.pyc
+[0.826s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre/tcp_transport.py to tcp_transport.cpython-310.pyc
+[0.826s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/fibre/usbbulk_transport.py to usbbulk_transport.cpython-310.pyc
+[0.827s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/run_shell.py to run_shell.cpython-310.pyc
+[0.827s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool/configuration.py to configuration.cpython-310.pyc
+[0.827s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool/utils.py to utils.cpython-310.pyc
+[0.828s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool/__init__.py to __init__.cpython-310.pyc
+[0.828s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool/shell.py to shell.cpython-310.pyc
+[0.828s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool/code_generator.py to code_generator.cpython-310.pyc
+[0.829s] byte-compiling /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller/dummy_cli_tool/ref_tool/version.py to version.cpython-310.pyc
+[0.829s] running install_data
+[0.829s] copying resource/dummy_controller -> /home/li/ros2_ws/install/dummy_controller/share/ament_index/resource_index/packages
+[0.829s] copying package.xml -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller
+[0.829s] running install_egg_info
+[0.830s] Copying ../../build/dummy_controller/dummy_controller.egg-info to /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy_controller-0.0.0-py3.10.egg-info
+[0.831s] running install_scripts
+[0.841s] Installing add_collision_object script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+[0.841s] Installing dummy_arm_controller script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+[0.841s] Installing moveit_server script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+[0.842s] writing list of installed files to '/home/li/ros2_ws/build/dummy_controller/install.log'
+[0.855s] Invoked command in '/home/li/ros2_ws/src/dummy_controller' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/li/ros2_ws/build/dummy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dummy_controller build --build-base /home/li/ros2_ws/build/dummy_controller/build install --record /home/li/ros2_ws/build/dummy_controller/install.log --single-version-externally-managed install_data --force

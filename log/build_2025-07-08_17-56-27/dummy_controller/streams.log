@@ -1,0 +1,54 @@
+[0.366s] Invoking command in '/home/li/ros2_ws/build/dummy_controller': PYTHONPATH=/home/li/ros2_ws/build/dummy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/li/ros2_ws/build/dummy_controller/build --no-deps symlink_data
+[0.525s] running develop
+[0.634s] running egg_info
+[0.634s] creating dummy_controller.egg-info
+[0.634s] writing dummy_controller.egg-info/PKG-INFO
+[0.634s] writing dependency_links to dummy_controller.egg-info/dependency_links.txt
+[0.634s] writing entry points to dummy_controller.egg-info/entry_points.txt
+[0.634s] writing requirements to dummy_controller.egg-info/requires.txt
+[0.634s] writing top-level names to dummy_controller.egg-info/top_level.txt
+[0.635s] writing manifest file 'dummy_controller.egg-info/SOURCES.txt'
+[0.636s] reading manifest file 'dummy_controller.egg-info/SOURCES.txt'
+[0.636s] writing manifest file 'dummy_controller.egg-info/SOURCES.txt'
+[0.637s] running build_ext
+[0.637s] Creating /home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages/dummy-controller.egg-link (link to .)
+[0.637s] Installing add_collision_object script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+[0.638s] Installing dummy_arm_controller script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+[0.638s] Installing moveit_server script to /home/li/ros2_ws/install/dummy_controller/lib/dummy_controller
+[0.638s] 
+[0.638s] Installed /home/li/ros2_ws/build/dummy_controller
+[0.638s] running symlink_data
+[0.638s] creating /home/li/ros2_ws/install/dummy_controller/share/ament_index
+[0.638s] creating /home/li/ros2_ws/install/dummy_controller/share/ament_index/resource_index
+[0.638s] creating /home/li/ros2_ws/install/dummy_controller/share/ament_index/resource_index/packages
+[0.638s] symbolically linking /home/li/ros2_ws/build/dummy_controller/resource/dummy_controller -> /home/li/ros2_ws/install/dummy_controller/share/ament_index/resource_index/packages
+[0.638s] symbolically linking /home/li/ros2_ws/build/dummy_controller/package.xml -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller
+[0.638s] creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller
+[0.638s] creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+[0.638s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/zadig-2.5.exe -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+[0.638s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/__init__.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+[0.638s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/run_shell.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+[0.638s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/run.bat -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+[0.638s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/.gitignore -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool
+[0.638s] creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/_addition
+[0.638s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/_addition/__init__.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/_addition
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/_addition/ref_demo.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/_addition
+[0.639s] creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/udp_transport.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/remote_object.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/serial_transport.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/utils.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/discovery.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/protocol.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/__init__.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/shell.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/tcp_transport.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/fibre/usbbulk_transport.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/fibre
+[0.639s] creating /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/configuration.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/utils.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/__init__.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/shell.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/code_generator.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+[0.639s] symbolically linking /home/li/ros2_ws/build/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool/version.py -> /home/li/ros2_ws/install/dummy_controller/share/dummy_controller/dummy_controller/dummy_cli_tool/ref_tool
+[0.653s] Invoked command in '/home/li/ros2_ws/build/dummy_controller' returned '0': PYTHONPATH=/home/li/ros2_ws/build/dummy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/li/ros2_ws/build/dummy_controller/build --no-deps symlink_data

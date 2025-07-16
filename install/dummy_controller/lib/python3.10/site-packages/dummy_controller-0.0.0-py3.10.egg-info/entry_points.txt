@@ -1,0 +1,8 @@
+[console_scripts]
+add_collision_object = dummy_controller.add_collision_object:main
+add_collision_object_simple = dummy_controller.add_collision_object_simple:main
+dummy_arm_controller = dummy_controller.dummy_arm_controller:main
+gazebo_moveit_bridge = dummy_controller.gazebo_moveit_bridge:main
+moveit_server = dummy_controller.moveit_server:main
+test_trajectory = dummy_controller.test_trajectory:main
+

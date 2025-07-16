@@ -1,0 +1,46 @@
+[0.014s] Invoking command in '/home/li/ros2_ws/build/dummy_moveit_config': AMENT_PREFIX_PATH=/home/li/ros2_ws/install/dummy-ros2_description:/home/li/ros2_ws/install/pymoveit2:/home/li/ros2_ws/install/dummy_moveit_config:/home/li/ros2_ws/install/dummy_controller:/opt/ros/humble CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/li/ros2_ws/install/dummy_controller:/home/li/ros2_ws/install/dummy-ros2_description:/opt/ros/humble CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/li/ros2_ws/install/dummy-ros2_description/lib/python3.10/site-packages:/home/li/ros2_ws/install/pymoveit2/lib/python3.11/site-packages:/home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --build /home/li/ros2_ws/build/dummy_moveit_config -- -j32 -l32
+[0.078s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.178s] -- Found moveit_ros_move_group: 2.5.9 (/opt/ros/humble/share/moveit_ros_move_group/cmake)
+[0.195s] -- Found Boost: /mnt/mydisk/anaconda3/lib/cmake/Boost-1.82.0/BoostConfig.cmake (found version "1.82.0") found components: system filesystem date_time program_options thread 
+[0.223s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.225s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.230s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.237s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.247s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.273s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.274s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.377s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.460s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.461s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.512s] -- Found Boost: /mnt/mydisk/anaconda3/lib/cmake/Boost-1.82.0/BoostConfig.cmake (found version "1.82.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[0.531s] -- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+[0.536s] -- Found rclcpp_lifecycle: 16.0.12 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[0.553s] -- Found Boost: /mnt/mydisk/anaconda3/lib/cmake/Boost-1.82.0/BoostConfig.cmake (found version "1.82.0") found components: filesystem 
+[0.593s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[0.734s] -- Found Boost: /mnt/mydisk/anaconda3/lib/cmake/Boost-1.82.0/BoostConfig.cmake (found version "1.82.0") found components: system filesystem date_time program_options thread chrono 
+[0.745s] -- Found moveit_kinematics: 2.5.9 (/opt/ros/humble/share/moveit_kinematics/cmake)
+[0.748s] -- Found Boost: /mnt/mydisk/anaconda3/lib/cmake/Boost-1.82.0/BoostConfig.cmake (found version "1.82.0") found components: program_options system 
+[0.754s] -- Found moveit_planners: 2.5.9 (/opt/ros/humble/share/moveit_planners/cmake)
+[0.755s] -- Found moveit_simple_controller_manager: 2.5.9 (/opt/ros/humble/share/moveit_simple_controller_manager/cmake)
+[0.758s] -- Found Boost: /mnt/mydisk/anaconda3/lib/cmake/Boost-1.82.0/BoostConfig.cmake (found version "1.82.0") found components: thread 
+[0.791s] [31mCMake Error at CMakeLists.txt:14 (find_package):
+[0.792s]   By not providing "Findjoint_state_publisher_gui.cmake" in CMAKE_MODULE_PATH
+[0.792s]   this project has asked CMake to find a package configuration file provided
+[0.792s]   by "joint_state_publisher_gui", but CMake did not find one.
+[0.792s] 
+[0.792s]   Could not find a package configuration file provided by
+[0.792s]   "joint_state_publisher_gui" with any of the following names:
+[0.792s] 
+[0.792s]     joint_state_publisher_guiConfig.cmake
+[0.792s]     joint_state_publisher_gui-config.cmake
+[0.792s] 
+[0.792s]   Add the installation prefix of "joint_state_publisher_gui" to
+[0.792s]   CMAKE_PREFIX_PATH or set "joint_state_publisher_gui_DIR" to a directory
+[0.792s]   containing one of the above files.  If "joint_state_publisher_gui" provides
+[0.792s]   a separate development package or SDK, be sure it has been installed.
+[0.792s] 
+[0.792s] [0m
+[0.792s] -- Configuring incomplete, errors occurred!
+[0.792s] See also "/home/li/ros2_ws/build/dummy_moveit_config/CMakeFiles/CMakeOutput.log".
+[0.799s] gmake: *** [Makefile:308：cmake_check_build_system] 错误 1
+[0.801s] Invoked command in '/home/li/ros2_ws/build/dummy_moveit_config' returned '2': AMENT_PREFIX_PATH=/home/li/ros2_ws/install/dummy-ros2_description:/home/li/ros2_ws/install/pymoveit2:/home/li/ros2_ws/install/dummy_moveit_config:/home/li/ros2_ws/install/dummy_controller:/opt/ros/humble CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/li/ros2_ws/install/dummy_controller:/home/li/ros2_ws/install/dummy-ros2_description:/opt/ros/humble CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/li/ros2_ws/install/dummy-ros2_description/lib/python3.10/site-packages:/home/li/ros2_ws/install/pymoveit2/lib/python3.11/site-packages:/home/li/ros2_ws/install/dummy_controller/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --build /home/li/ros2_ws/build/dummy_moveit_config -- -j32 -l32

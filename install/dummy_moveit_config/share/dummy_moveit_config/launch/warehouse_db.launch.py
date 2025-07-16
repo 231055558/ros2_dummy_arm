@@ -1,0 +1,1 @@
+/home/li/ros2_ws/src/dummy_moveit_config/launch/warehouse_db.launch.py

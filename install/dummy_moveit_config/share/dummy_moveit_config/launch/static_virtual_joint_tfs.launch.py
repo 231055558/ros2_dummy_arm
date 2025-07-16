@@ -1,0 +1,1 @@
+/home/li/ros2_ws/src/dummy_moveit_config/launch/static_virtual_joint_tfs.launch.py
