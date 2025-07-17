@@ -14,14 +14,14 @@ import dummy_controller.dummy_cli_tool.ref_tool
 class JointTrajectoryActionServer(Node):
     
     my_driver = None
-    rad_volumn_diff = np.array([0,0,1.57079,0,0,0])
+    rad_volumn_diff = np.array([-0.05236,0,1.57079,0,0,0])
     rad_direct_diff = np.array([1,1,1,1,-1,1])
     pai = 3.1415926
     ready_rad = np.array([0,0,0,0,0,0])
     home_rad = np.array([0,-1.3089,1.5707,0,0,0])
     joint_names = ['joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6']
     # Correction in degrees to align RVIZ with the real robot's reported state
-    state_correction_deg = np.array([0, -73.0, 90.0, 0, 0, 0])
+    state_correction_deg = np.array([3, -73.0, 90.0, 0, 0, 0])
 
     def __init__(self):
         super().__init__('dummy_arm_controller_real')
