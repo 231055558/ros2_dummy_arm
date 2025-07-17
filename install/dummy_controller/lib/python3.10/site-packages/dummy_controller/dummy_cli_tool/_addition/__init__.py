@@ -1,3 +1,0 @@
-"""
-Dummy Robot Addition Package
-""" 

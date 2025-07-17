@@ -1,9 +1,0 @@
-/home/li/ros2_ws/build/dummy_moveit_config/CMakeFiles/uninstall.dir
-/home/li/ros2_ws/build/dummy_moveit_config/CMakeFiles/dummy_moveit_config_uninstall.dir
-/home/li/ros2_ws/build/dummy_moveit_config/CMakeFiles/test.dir
-/home/li/ros2_ws/build/dummy_moveit_config/CMakeFiles/edit_cache.dir
-/home/li/ros2_ws/build/dummy_moveit_config/CMakeFiles/rebuild_cache.dir
-/home/li/ros2_ws/build/dummy_moveit_config/CMakeFiles/list_install_components.dir
-/home/li/ros2_ws/build/dummy_moveit_config/CMakeFiles/install.dir
-/home/li/ros2_ws/build/dummy_moveit_config/CMakeFiles/install/local.dir
-/home/li/ros2_ws/build/dummy_moveit_config/CMakeFiles/install/strip.dir

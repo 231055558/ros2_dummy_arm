@@ -1,1 +1,0 @@
-/home/li/ros2_ws/src/dummy_moveit_config/launch/servo_cpp_interface_demo.launch.py

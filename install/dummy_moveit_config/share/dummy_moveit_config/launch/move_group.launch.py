@@ -1,1 +1,0 @@
-/home/li/ros2_ws/src/dummy_moveit_config/launch/move_group.launch.py

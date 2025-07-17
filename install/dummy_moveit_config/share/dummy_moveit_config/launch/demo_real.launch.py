@@ -1,1 +1,0 @@
-/home/li/ros2_ws/src/dummy_moveit_config/launch/demo_real.launch.py
