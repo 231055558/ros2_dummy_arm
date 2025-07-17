@@ -24,7 +24,8 @@ setup(
             'moveit_server = dummy_controller.moveit_server:main',
             'add_collision_object = dummy_controller.add_collision_object:main',
             'add_collision_object_simple = dummy_controller.add_collision_object_simple:main',
-            'test_trajectory = dummy_controller.test_trajectory:main'
+            'test_trajectory = dummy_controller.test_trajectory:main',
+            'gazebo_bridge = dummy_controller.gazebo_bridge:main'
         ],
     },
 )
