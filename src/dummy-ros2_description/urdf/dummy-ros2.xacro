@@ -3,7 +3,6 @@
 
 <xacro:include filename="$(find dummy-ros2_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find dummy-ros2_description)/urdf/dummy-ros2.trans" />
-<xacro:include filename="$(find dummy-ros2_description)/urdf/dummy-ros2.gazebo" />
 <link name="world" />
 <joint name="world_joint" type="fixed">
   <parent link="world" />
