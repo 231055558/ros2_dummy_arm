@@ -26,7 +26,7 @@ ros2 launch dummy_moveit_config demo_real_simple.launch.py
 
 ### 4. 启动Gazebo同步 (可选)
 ```bash
-# 终端3：Gazebo仿真同步
+# 终端3：Gazebo仿真同步 (现在包含完整的控制器支持)
 ros2 launch dummy_moveit_config gazebo_sync.launch.py
 ```
 
@@ -94,8 +94,9 @@ moveit2.move_to_configuration([0.0, -0.5, 0.8, 0.0, 0.0, 0.0])
 
 ### 如果Gazebo不同步
 1. 确保gazebo_sync节点正在运行：`ros2 node list | grep gazebo`
-2. 检查Gazebo关节状态：`ros2 topic echo /gazebo_joint_states`
-3. 运行测试脚本：`python3 src/dummy_moveit_config/test_gazebo.py`
+2. 检查控制器状态：`ros2 control list_controllers`
+3. 检查Gazebo关节状态：`ros2 topic echo /gazebo_joint_states`
+4. 检查控制器话题：`ros2 topic list | grep position_controller`
 
 ### 如果无法连接机器人
 1. 检查USB连接：`lsusb`
