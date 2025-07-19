@@ -3,6 +3,38 @@
 
 <xacro:include filename="$(find dummy-ros2_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find dummy-ros2_description)/urdf/dummy-ros2.trans" />
+<xacro:include filename="$(find dummy-ros2_description)/urdf/dummy-ros2.gazebo.xacro" />
+
+<!-- ros2_control for Gazebo -->
+<ros2_control name="GazeboSystem" type="system">
+  <hardware>
+    <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+  </hardware>
+  <joint name="joint1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+  </joint>
+  <joint name="joint2">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+  </joint>
+  <joint name="joint3">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+  </joint>
+  <joint name="joint4">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+  </joint>
+  <joint name="joint5">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+  </joint>
+  <joint name="joint6">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+  </joint>
+</ros2_control>
 <link name="world" />
 <joint name="world_joint" type="fixed">
   <parent link="world" />

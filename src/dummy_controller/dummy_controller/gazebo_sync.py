@@ -2,7 +2,7 @@
 """
 Gazebo Sync Node
 Synchronizes Gazebo robot with real robot by subscribing to /joint_states
-and sending joint position commands to Gazebo
+and publishing corresponding /gazebo_joint_states
 """
 
 import rclpy
@@ -31,30 +31,29 @@ class GazeboSync(Node):
             self.joint_state_callback,
             10
         )
-
-        # Publishers for Gazebo joint position commands
-        self.joint_publishers = {}
-        for joint_name in self.joint_names:
-            # Gazebo joint position command topics
-            topic_name = f'/gazebo/{joint_name}_position_controller/command'
-            self.joint_publishers[joint_name] = self.create_publisher(
-                Float64,
-                topic_name,
-                10
-            )
         
-        # Also publish joint states for Gazebo robot state publisher
+        # Publish joint states for Gazebo robot state publisher
         self.gazebo_joint_state_publisher = self.create_publisher(
             JointState,
             '/gazebo_joint_states',
             10
         )
         
-        # Timer to sync with Gazebo at regular intervals
-        self.timer = self.create_timer(0.05, self.sync_with_gazebo)  # 20Hz
+        # Publishers for individual joint position commands
+        self.joint_position_publishers = {}
+        for joint_name in self.joint_names:
+            topic_name = f'/{joint_name}_position_controller/commands'
+            self.joint_position_publishers[joint_name] = self.create_publisher(
+                Float64,
+                topic_name,
+                10
+            )
         
-        self.get_logger().info('Gazebo Sync Node started - syncing real robot with Gazebo')
-        self.get_logger().info(f'Publishing to topics: {list(self.joint_publishers.keys())}')
+        # Timer to sync with Gazebo at regular intervals
+        self.timer = self.create_timer(0.1, self.sync_with_gazebo)  # 10Hz
+        
+        self.get_logger().info('Gazebo Sync Node started - using Ignition position commands')
+        self.get_logger().info(f'Publishing to topics: {list(self.joint_position_publishers.keys())}')
 
     def joint_state_callback(self, msg):
         """Callback for joint state messages from real robot"""
@@ -62,7 +61,8 @@ class GazeboSync(Node):
             self.latest_joint_state = msg
 
     def sync_with_gazebo(self):
-        """Sync real robot joint states with Gazebo"""
+        """Sync real robot joint states with Gazebo robot by publishing joint states"""
+        
         with self.joint_state_mutex:
             if self.latest_joint_state is None:
                 return
@@ -72,14 +72,14 @@ class GazeboSync(Node):
                 if len(self.latest_joint_state.position) >= 6:
                     joint_positions = list(self.latest_joint_state.position[:6])
                     
-                    # Send joint position commands to Gazebo controllers
+                    # Send position commands to individual joints
                     for i, (joint_name, position) in enumerate(zip(self.joint_names, joint_positions)):
-                        if joint_name in self.joint_publishers:
+                        if joint_name in self.joint_position_publishers:
                             cmd_msg = Float64()
                             cmd_msg.data = float(position)
-                            self.joint_publishers[joint_name].publish(cmd_msg)
+                            self.joint_position_publishers[joint_name].publish(cmd_msg)
                     
-                    # Also publish joint states for Gazebo robot state publisher
+                    # Also publish joint states for visualization
                     gazebo_joint_state = JointState()
                     gazebo_joint_state.header.stamp = self.get_clock().now().to_msg()
                     gazebo_joint_state.header.frame_id = ""
@@ -92,9 +92,9 @@ class GazeboSync(Node):
                     
                     # Log occasionally for debugging
                     self.sync_count += 1
-                    if self.sync_count % 100 == 0:  # Log every 5 seconds at 20Hz
+                    if self.sync_count % 50 == 0:  # Log every 5 seconds at 10Hz
                         positions_str = [f"{pos:.3f}" for pos in joint_positions]
-                        self.get_logger().info(f'Syncing Gazebo joints: {positions_str}')
+                        self.get_logger().info(f'Commanding Gazebo joints: {positions_str}')
                         
             except Exception as e:
                 self.get_logger().error(f'Error syncing with Gazebo: {e}')

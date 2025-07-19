@@ -81,9 +81,58 @@ def generate_launch_description():
         ]
     )
 
-    # Gazebo sync node (will be created next)
+    # Controller spawner - spawn the controllers
+    controller_spawner = TimerAction(
+        period=4.0,  # Wait for ros2_control to be ready
+        actions=[
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint_state_broadcaster"],
+                output="screen",
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint1_position_controller"],
+                output="screen",
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint2_position_controller"],
+                output="screen",
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint3_position_controller"],
+                output="screen",
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint4_position_controller"],
+                output="screen",
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint5_position_controller"],
+                output="screen",
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint6_position_controller"],
+                output="screen",
+            )
+        ]
+    )
+
+    # Gazebo sync node
     gazebo_sync_node = TimerAction(
-        period=5.0,  # Wait for everything to be ready
+        period=6.0,  # Wait for controllers to be ready
         actions=[
             Node(
                 package="dummy_controller",
@@ -98,5 +147,6 @@ def generate_launch_description():
         gazebo_launch,
         gazebo_robot_state_publisher,
         spawn_entity,
+        controller_spawner,
         gazebo_sync_node,
     ]) 
