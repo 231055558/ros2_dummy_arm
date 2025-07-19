@@ -75,8 +75,8 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        static_tf,
-        robot_state_publisher, 
-        move_group_node,
+            static_tf,
+            robot_state_publisher,
+            move_group_node,
         rviz_node,
     ])

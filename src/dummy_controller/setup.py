@@ -25,6 +25,7 @@ setup(
             'add_collision_object = dummy_controller.add_collision_object:main',
             'add_collision_object_simple = dummy_controller.add_collision_object_simple:main',
             'test_trajectory = dummy_controller.test_trajectory:main',
+            'gazebo_sync = dummy_controller.gazebo_sync:main',
         ],
     },
 )
