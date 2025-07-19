@@ -1,77 +1,37 @@
+#!/usr/bin/env python3
+"""
+Real Robot Demo Launch File
+This launch file starts all necessary components for real robot control with MoveIt and RViz
+"""
+
 import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
-from launch.conditions import IfCondition, UnlessCondition
 from launch_ros.actions import Node
-from launch.actions import ExecuteProcess
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch_ros.substitutions import FindPackageShare
 from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
-import xacro
 
 
 def generate_launch_description():
-
-    # Declare launch arguments
-    use_gazebo_arg = DeclareLaunchArgument(
-        'use_gazebo',
-        default_value='true',
-        description='Whether to start Gazebo simulation'
-    )
-
-    use_gazebo = LaunchConfiguration('use_gazebo')
-
-    # Use original URDF for RViz and MoveIt - CRITICAL for joint state sync
-    urdf_file = "config/dummy-ros2.urdf.xacro"
-
+    """
+    Generate launch description for real robot demo
+    """
+    
+    # Build MoveIt configuration
     moveit_config = (
         MoveItConfigsBuilder("dummy-ros2", package_name="dummy_moveit_config")
-        .robot_description(file_path=urdf_file)
+        .robot_description(file_path="config/dummy-ros2.urdf.xacro")
         .robot_description_semantic(file_path="config/dummy-ros2.srdf")
         .trajectory_execution(file_path="config/moveit_controllers.yaml")
         .to_moveit_configs()
     )
 
-    # Gazebo launch (conditional)
-    gazebo_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            PathJoinSubstitution([
-                FindPackageShare('gazebo_ros'),
-                'launch',
-                'gazebo.launch.py'
-            ])
-        ]),
-        condition=IfCondition(use_gazebo),
-        launch_arguments={
-            'world': '',
-            'pause': 'false',
-            'use_sim_time': 'true'
-        }.items()
-    )
-
-    # Spawn robot in Gazebo (conditional)
-    spawn_entity = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        condition=IfCondition(use_gazebo),
-        arguments=[
-            '-topic', 'robot_description',
-            '-entity', 'dummy_robot',
-            '-x', '0.0',
-            '-y', '0.0',
-            '-z', '0.0'
-        ],
-        output='screen'
-    )
-
-    # RViz
+    # RViz with MoveIt configuration
     rviz_config_file = os.path.join(
         get_package_share_directory("dummy_moveit_config"),
         "config",
         "moveit.rviz",
     )
+    
     rviz_node = Node(
         package="rviz2",
         executable="rviz2",
@@ -87,7 +47,7 @@ def generate_launch_description():
         ],
     )
 
-    # Static TF
+    # Static TF publisher for world to base_link transform
     static_tf = Node(
         package="tf2_ros",
         executable="static_transform_publisher",
@@ -96,7 +56,7 @@ def generate_launch_description():
         arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "base_link"],
     )
 
-    # Robot State Publisher
+    # Robot State Publisher - publishes robot TF transforms
     robot_state_publisher = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
@@ -105,35 +65,18 @@ def generate_launch_description():
         parameters=[moveit_config.robot_description],
     )
 
-    # MoveGroup node
+    # MoveGroup node for motion planning
     move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[
-            moveit_config.to_dict(),
-        ],
+        parameters=[moveit_config.to_dict()],
         arguments=["--ros-args", "--log-level", "info"],
     )
 
-    # Controller spawner for Gazebo (conditional)
-    controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        condition=IfCondition(use_gazebo),
-        arguments=["gazebo_dummy_arm_controller", "joint_state_broadcaster"],
-        output="screen",
-    )
-
-    return LaunchDescription(
-        [
-            use_gazebo_arg,
-            gazebo_launch,
-            spawn_entity,
-            rviz_node,
-            static_tf,
-            robot_state_publisher,
-            move_group_node,
-            controller_spawner,
-        ]
-    )
+    return LaunchDescription([
+        static_tf,
+        robot_state_publisher, 
+        move_group_node,
+        rviz_node,
+    ])

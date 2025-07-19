@@ -46,8 +46,13 @@ class JointTrajectoryActionServer(Node):
         self.joint_state_timer = self.create_timer(0.1, self.publish_joint_states)
 
     def publish_joint_states(self):
+        """
+        Publish joint states with accurate timestamps and complete information
+        """
         joint_state_msg = JointState()
+        # Use the node's clock for consistent timestamps
         joint_state_msg.header.stamp = self.get_clock().now().to_msg()
+        joint_state_msg.header.frame_id = ""
         joint_state_msg.name = self.joint_names
         
         try:
@@ -60,15 +65,40 @@ class JointTrajectoryActionServer(Node):
                 self.my_driver.robot.joint_5.angle,
                 self.my_driver.robot.joint_6.angle
             ])
+            
             # Apply the correction to align RVIZ with the physical robot's zero position
             corrected_angles_deg = current_angles_deg + self.state_correction_deg
             # Invert J5 direction for RVIZ display
             corrected_angles_deg[4] = -corrected_angles_deg[4]
             current_angles_rad = self.degree2rad(corrected_angles_deg)
+            
+            # Set position data
             joint_state_msg.position = current_angles_rad.tolist()
+            
+            # Initialize velocity and effort arrays (set to zero for now)
+            # In the future, these could be populated with actual sensor data
+            joint_state_msg.velocity = [0.0] * len(self.joint_names)
+            joint_state_msg.effort = [0.0] * len(self.joint_names)
+            
+            # Publish the joint state
             self.joint_state_publisher.publish(joint_state_msg)
+            
+            # Log occasionally for debugging (every 50 publishes = 5 seconds at 10Hz)
+            if not hasattr(self, '_publish_count'):
+                self._publish_count = 0
+            self._publish_count += 1
+            
+            if self._publish_count % 50 == 0:
+                pos_str = [f"{pos:.3f}" for pos in joint_state_msg.position]
+                self.get_logger().debug(f'Published joint states: {pos_str}')
+                
         except Exception as e:
             self.get_logger().error(f"Could not get joint states: {e}")
+            # Publish a valid message with zero positions as fallback
+            joint_state_msg.position = [0.0] * len(self.joint_names)
+            joint_state_msg.velocity = [0.0] * len(self.joint_names)
+            joint_state_msg.effort = [0.0] * len(self.joint_names)
+            self.joint_state_publisher.publish(joint_state_msg)
 
     def rad_fix(self,arr_rad):
         return (arr_rad+self.rad_volumn_diff)*self.rad_direct_diff
