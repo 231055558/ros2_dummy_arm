@@ -79,6 +79,10 @@ def generate_launch_description():
         parameters=[moveit_config.to_dict()],
     )
 
+    # 注意：在Gazebo仿真中，D435相机数据由Gazebo插件提供
+    # 不需要启动实际的realsense2_camera节点
+    # 相机话题会由Gazebo的相机插件自动发布
+
     return LaunchDescription([
         static_tf,
         move_group_node,

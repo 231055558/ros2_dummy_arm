@@ -24,6 +24,7 @@ setup(
             'moveit_server = dummy_controller.moveit_server:main',
             'add_collision_object = dummy_controller.add_collision_object:main',
             'add_collision_object_simple = dummy_controller.add_collision_object_simple:main',
+            'depth_image_visualizer = dummy_controller.depth_image_visualizer:main',
         ],
     },
 )

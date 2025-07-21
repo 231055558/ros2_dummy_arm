@@ -2,6 +2,7 @@
 <robot name="dummy-ros2" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find dummy-ros2_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
 
 <!-- 基础连接：世界 -> base_link -->
 <link name="world" />
@@ -323,6 +324,67 @@
 <gazebo reference="link6_1_1">
   <material>Gazebo/Grey</material>
   <gravity>false</gravity>
+</gazebo>
+
+<!-- D435深度相机安装在J6末端 -->
+<xacro:sensor_d435 parent="link6_1_1" name="d435" use_nominal_extrinsics="true">
+  <origin xyz="0.0 -0.05 0.02" rpy="0 0 0"/>
+</xacro:sensor_d435>
+
+<!-- Gazebo D435相机插件 -->
+<gazebo reference="d435_link">
+  <sensor type="depth" name="d435_depth_sensor">
+    <update_rate>30</update_rate>
+    <camera>
+      <horizontal_fov>1.211</horizontal_fov>
+      <image>
+        <width>640</width>
+        <height>480</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.02</near>
+        <far>10.0</far>
+      </clip>
+    </camera>
+    <plugin name="d435_depth_driver" filename="libgazebo_ros_camera.so">
+      <ros>
+        <namespace>/d435</namespace>
+        <remapping>~/image_raw:=depth/image_rect_raw</remapping>
+        <remapping>~/camera_info:=depth/camera_info</remapping>
+      </ros>
+      <camera_name>d435</camera_name>
+      <frame_name>d435_depth_optical_frame</frame_name>
+      <hack_baseline>0.07</hack_baseline>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="d435_color_frame">
+  <sensor type="camera" name="d435_color_sensor">
+    <update_rate>30</update_rate>
+    <camera>
+      <horizontal_fov>1.211</horizontal_fov>
+      <image>
+        <width>640</width>
+        <height>480</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.02</near>
+        <far>10.0</far>
+      </clip>
+    </camera>
+    <plugin name="d435_color_driver" filename="libgazebo_ros_camera.so">
+      <ros>
+        <namespace>/d435</namespace>
+        <remapping>~/image_raw:=color/image_raw</remapping>
+        <remapping>~/camera_info:=color/camera_info</remapping>
+      </ros>
+      <camera_name>d435</camera_name>
+      <frame_name>d435_color_optical_frame</frame_name>
+    </plugin>
+  </sensor>
 </gazebo>
 
 </robot> 
