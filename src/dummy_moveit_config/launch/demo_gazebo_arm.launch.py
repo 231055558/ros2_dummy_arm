@@ -51,12 +51,13 @@ def generate_launch_description():
     )
 
     # 静态TF发布器 (world -> base_link)
+    # 添加180度Z轴旋转修正RViz中机械臂朝向与Gazebo一致
     static_tf = Node(
         package="tf2_ros",
         executable="static_transform_publisher",
         name="static_transform_publisher",
         output="log",
-        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "base_link"],
+        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "3.14159", "world", "base_link"],
     )
 
     # MoveGroup节点 - 用于运动规划
