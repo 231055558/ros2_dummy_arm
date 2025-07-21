@@ -6,7 +6,7 @@ D435深度相机数据可视化程序
 
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import Image, PointCloud2
+from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
 import numpy as np
@@ -20,40 +20,34 @@ class DepthImageVisualizer(Node):
         # 初始化CV Bridge
         self.bridge = CvBridge()
         
-        # 订阅深度图像话题
+        # 订阅深度图像话题（修复话题名称）
         self.depth_subscription = self.create_subscription(
             Image,
-            '/d435/depth/image_rect_raw',
+            '/d435/d435/depth/image_raw',
             self.depth_callback,
             10
         )
         
-        # 订阅彩色图像话题
+        # 订阅彩色图像话题（修复话题名称）
         self.color_subscription = self.create_subscription(
             Image,
-            '/d435/color/image_raw',
+            '/d435/d435/image_raw',
             self.color_callback,
             10
         )
         
-        # 订阅点云话题
-        self.pointcloud_subscription = self.create_subscription(
-            PointCloud2,
-            '/d435/depth/color/points',
-            self.pointcloud_callback,
-            10
-        )
+        # 注意：Gazebo libgazebo_ros_camera.so插件不会生成点云数据
+        # 如果需要点云，需要从深度图像和相机内参自己计算生成
         
         self.get_logger().info('深度图像可视化节点已启动')
         self.get_logger().info('订阅的话题:')
-        self.get_logger().info('  - /d435/depth/image_rect_raw (深度图像)')
-        self.get_logger().info('  - /d435/color/image_raw (彩色图像)')
-        self.get_logger().info('  - /d435/depth/color/points (点云)')
+        self.get_logger().info('  - /d435/d435/depth/image_raw (深度图像)')
+        self.get_logger().info('  - /d435/d435/image_raw (彩色图像)')
+        self.get_logger().info('注意: Gazebo相机插件不直接提供点云数据')
         
         # 用于统计的计数器
         self.depth_count = 0
         self.color_count = 0
-        self.pointcloud_count = 0
         
         # 创建定时器用于状态报告
         self.timer = self.create_timer(5.0, self.status_callback)
@@ -102,20 +96,10 @@ class DepthImageVisualizer(Node):
         except Exception as e:
             self.get_logger().error(f'处理彩色图像时出错: {e}')
     
-    def pointcloud_callback(self, msg):
-        """点云回调函数"""
-        self.pointcloud_count += 1
-        
-        # 每100个点云打印一次信息
-        if self.pointcloud_count % 100 == 0:
-            self.get_logger().info(
-                f'接收到点云数据: {msg.width}x{msg.height} = {msg.width * msg.height} 点'
-            )
-    
     def status_callback(self):
         """状态报告回调函数"""
         self.get_logger().info(
-            f'数据接收状态 - 深度: {self.depth_count}, 彩色: {self.color_count}, 点云: {self.pointcloud_count}'
+            f'数据接收状态 - 深度: {self.depth_count}, 彩色: {self.color_count}'
         )
 
 
@@ -135,6 +119,11 @@ def main(args=None):
         print("  - 将显示两个OpenCV窗口：深度图像和彩色图像")
         print("  - 深度图像使用JET颜色映射显示")
         print("  - 红色表示近距离，蓝色表示远距离")
+        print()
+        print("修复说明:")
+        print("  - 已修复话题名称匹配问题")
+        print("  - 实际话题: /d435/d435/depth/image_raw 和 /d435/d435/image_raw")
+        print("  - Gazebo相机插件不直接提供点云数据")
         
         rclpy.spin(visualizer)
         
