@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-简单的Gazebo机械臂演示启动文件
-这个文件将在Gazebo中启动机械臂，并允许通过关节状态发布器控制
+Gazebo机械臂基础环境启动文件
+此文件启动Gazebo环境和基础控制器，为RViz控制做准备
 """
 
 import os
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess
+from launch.actions import ExecuteProcess, TimerAction
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from ament_index_python.packages import get_package_share_directory
@@ -15,7 +15,7 @@ import xacro
 
 def generate_launch_description():
     """
-    生成Gazebo演示的启动描述
+    生成Gazebo基础环境的启动描述
     """
     
     # 包路径
@@ -68,20 +68,30 @@ def generate_launch_description():
         output='screen'
     )
     
-    # 关节状态广播器
-    joint_state_broadcaster_spawner = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
-        output='screen'
+    # 延迟启动关节状态广播器 (等待控制器管理器启动)
+    joint_state_broadcaster_spawner = TimerAction(
+        period=3.0,
+        actions=[
+            Node(
+                package='controller_manager',
+                executable='spawner',
+                arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
+                output='screen'
+            )
+        ]
     )
     
-    # 位置控制器
-    position_controller_spawner = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=['dummy_arm_controller', '--controller-manager', '/controller_manager'],
-        output='screen'
+    # 延迟启动位置控制器 (等待关节状态广播器启动)
+    position_controller_spawner = TimerAction(
+        period=5.0,
+        actions=[
+            Node(
+                package='controller_manager',
+                executable='spawner',
+                arguments=['dummy_arm_controller', '--controller-manager', '/controller_manager'],
+                output='screen'
+            )
+        ]
     )
     
     return LaunchDescription([
