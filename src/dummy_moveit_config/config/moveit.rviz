@@ -4,6 +4,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /MotionPlanning1
+        - /PointCloud21
   - Class: rviz_common/Help
     Name: Help
   - Class: rviz_common/Views
@@ -26,6 +27,23 @@ Visualization Manager:
       Scene Robot:
         Robot Alpha: 0.5
       Value: true
+    - Class: rviz_default_plugins/PointCloud2
+      Name: PointCloud2
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /d435/d435/points
+      Value: true
+      Color Transformer: RGB8
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Size (m): 0.01
+      Style: Points
+      Use Fixed Frame: true
+      Use rainbow: false
   Global Options:
     Fixed Frame: world
   Tools:
