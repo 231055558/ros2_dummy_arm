@@ -131,14 +131,14 @@
     <inertia ixx="0.000118" iyy="0.000036" izz="0.000122" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.0346 0.234017 -0.318" rpy="0 0 0"/>
+    <origin xyz="-0.01 -0.08 -0.318" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find dummy-ros2_description)/meshes/link5_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.0346 0.234017 -0.318" rpy="0 0 0"/>
+    <origin xyz="-0.01 -0.08 -0.318" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find dummy-ros2_description)/meshes/link5_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -153,14 +153,14 @@
     <inertia ixx="0.000031" iyy="0.000042" izz="0.000032" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.016 0.290517 -0.318" rpy="0 0 0"/>
+    <origin xyz="0.013 0.2465 -0.3545" rpy="0 0 3.141592654"/>
     <geometry>
       <mesh filename="file://$(find dummy-ros2_description)/meshes/link6_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.016 0.290517 -0.318" rpy="0 0 0"/>
+    <origin xyz="0.013 0.2465 -0.3545" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find dummy-ros2_description)/meshes/link6_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -328,7 +328,7 @@
 
 <!-- D435深度相机安装在J6末端 -->
 <xacro:sensor_d435 parent="link6_1_1" name="d435" use_nominal_extrinsics="true">
-  <origin xyz="0.00 0.006 0.02" rpy="0 0 -1.5708"/>
+  <origin xyz="0.00 -0.04 0.03" rpy="0 0 -1.5708"/>
 </xacro:sensor_d435>
 
 <!-- Gazebo D435相机插件 -->

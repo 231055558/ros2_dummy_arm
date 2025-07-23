@@ -122,14 +122,14 @@
     <inertia ixx="0.000118" iyy="3.6e-05" izz="0.000122" ixy="2.5e-05" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.0346 0.234017 -0.318" rpy="0 0 0"/>
+    <origin xyz="-0.01 -0.08 -0.318" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find dummy-ros2_description)/meshes/link5_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.0346 0.234017 -0.318" rpy="0 0 0"/>
+    <origin xyz="-0.01 -0.08 -0.318" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find dummy-ros2_description)/meshes/link5_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -143,14 +143,14 @@
     <inertia ixx="3.1e-05" iyy="4.2e-05" izz="3.2e-05" ixy="1e-06" iyz="-0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.016 0.290517 -0.318" rpy="0 0 0"/>
+    <origin xyz="0.013 0.2465 -0.3545" rpy="0 0 3.141592654"/>
     <geometry>
       <mesh filename="file://$(find dummy-ros2_description)/meshes/link6_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.016 0.290517 -0.318" rpy="0 0 0"/>
+    <origin xyz="0.013 0.2465 -0.3545" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find dummy-ros2_description)/meshes/link6_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
