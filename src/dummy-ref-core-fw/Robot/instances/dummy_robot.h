@@ -86,11 +86,70 @@ public:
 
     }
 
+    // ✅ 便捷控制方法 - 直接对应ASCII命令
+    void OpenHand()
+    {
+        SetAngleWithCurrentLimit(1);  // 对应 !HAND_O
+    }
+    
+    void CloseHand()
+    {
+        SetAngleWithCurrentLimit(-1); // 对应 !HAND_C
+    }
+
+    // ✅ Fibre协议包装方法 - 解决类型安全问题
+    void SetHandEnable(bool enable)
+    {
+        CtrlStepMotor::SetEnable(enable);  // 包装基类方法
+    }
+    
+    void SetHandPosition(float pos)
+    {
+        CtrlStepMotor::SetPositionSetPoint(pos);  // 包装基类方法
+    }
+    
+    void SetHandCurrent(float current)
+    {
+        CtrlStepMotor::SetCurrentSetPoint(current);  // 包装基类方法
+    }
+    
+    void SetHandVelocity(float vel)
+    {
+        CtrlStepMotor::SetVelocitySetPoint(vel);  // 包装基类方法
+    }
+
     // 状态查询
     bool isEnabled() const {
         return state != STOP;
     }
 
+    // ✅ Fibre协议支持 - 完整暴露夹爪控制功能
+    auto MakeProtocolDefinitions()
+    {
+        return make_protocol_member_list(
+            // 基础控制功能 - 使用包装方法解决类型安全问题
+            make_protocol_function("set_enable", *this, &StepHand::SetHandEnable, "enable"),        // !HAND_EN/!HAND_DIS
+            make_protocol_function("set_position", *this, &StepHand::SetHandPosition, "pos"),       // 基础位置控制
+            make_protocol_function("set_current", *this, &StepHand::SetHandCurrent, "current"),     // 基础电流控制
+            make_protocol_function("set_velocity", *this, &StepHand::SetHandVelocity, "vel"),       // 基础速度控制
+            
+            // StepHand特有的高级功能
+            make_protocol_function("set_angle_with_speed_limit", *this, &StepHand::SetAngleWithSpeedLimit, "angle"),      // !HAND_POS
+            make_protocol_function("set_angle_with_current_limit", *this, &StepHand::SetAngleWithCurrentLimit, "inverse"), // !HAND_O/!HAND_C
+            make_protocol_function("hand_calibration", *this, &StepHand::HandCalibration),          // !HAND_ZERO
+            
+            // 便捷控制方法 (直接对应ASCII命令)
+            make_protocol_function("open", *this, &StepHand::OpenHand),      // 直接打开 (!HAND_O)
+            make_protocol_function("close", *this, &StepHand::CloseHand),    // 直接关闭 (!HAND_C)
+            
+            // 暴露关键属性
+            make_protocol_property("current", &this->current),
+            make_protocol_property("opened_angle", &this->OpenedAngle),
+            make_protocol_property("closed_angle", &this->ClosedAngle),
+            make_protocol_ro_property("angle", &this->angle),
+            make_protocol_ro_property("temperature", &this->temperature)
+        );
+    }
 
 };
 
@@ -207,7 +266,7 @@ public:
             make_protocol_object("joint_5", motorJ[5]->MakeProtocolDefinitions()),
             make_protocol_object("joint_6", motorJ[6]->MakeProtocolDefinitions()),
             make_protocol_object("joint_all", motorJ[ALL]->MakeProtocolDefinitions()),
-            // make_protocol_object("hand", hand2->MakeProtocolDefinitions()),  // ✅ 暂时注释：StepHand还未实现MakeProtocolDefinitions
+            make_protocol_object("hand", hand2->MakeProtocolDefinitions()),  // ✅ 启用：StepHand已实现MakeProtocolDefinitions
             make_protocol_function("reboot", *this, &DummyRobot::Reboot),
             make_protocol_function("set_enable", *this, &DummyRobot::SetEnable, "enable"),
             make_protocol_function("set_rgb_enable", *this, &DummyRobot::SetRGBEnable, "enable"),
