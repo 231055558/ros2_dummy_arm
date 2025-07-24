@@ -91,21 +91,7 @@ public:
         return state != STOP;
     }
 
-    // ✅ 添加Fibre协议支持 - 让StepHand支持Fibre通信
-    auto MakeProtocolDefinitions()
-    {
-        return make_protocol_member_list(
-            make_protocol_function("set_angle_with_speed", *this, &StepHand::SetAngleWithSpeedLimit, "angle"),
-            make_protocol_function("set_angle_with_current", *this, &StepHand::SetAngleWithCurrentLimit, "inverse"),
-            make_protocol_function("set_enable", *this, &StepHand::SetEnable, "enable"),
-            make_protocol_function("calibrate", *this, &StepHand::HandCalibration),
-            make_protocol_property("current", &StepHand::current),
-            make_protocol_property("opened_angle", &StepHand::OpenedAngle),
-            make_protocol_property("closed_angle", &StepHand::ClosedAngle),
-            make_protocol_ro_property("angle", &StepHand::angle),
-            make_protocol_ro_property("temperature", &StepHand::temperature)
-        );
-    }
+
 };
 
 
@@ -221,7 +207,7 @@ public:
             make_protocol_object("joint_5", motorJ[5]->MakeProtocolDefinitions()),
             make_protocol_object("joint_6", motorJ[6]->MakeProtocolDefinitions()),
             make_protocol_object("joint_all", motorJ[ALL]->MakeProtocolDefinitions()),
-            make_protocol_object("hand", hand2->MakeProtocolDefinitions()),  // ✅ 修复：使用hand2代替hand
+            // make_protocol_object("hand", hand2->MakeProtocolDefinitions()),  // ✅ 暂时注释：StepHand还未实现MakeProtocolDefinitions
             make_protocol_function("reboot", *this, &DummyRobot::Reboot),
             make_protocol_function("set_enable", *this, &DummyRobot::SetEnable, "enable"),
             make_protocol_function("set_rgb_enable", *this, &DummyRobot::SetRGBEnable, "enable"),
