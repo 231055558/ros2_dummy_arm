@@ -25,7 +25,7 @@ class JointTrajectoryActionServer(Node):
     
     pai = 3.1415926
     ready_rad = np.array([0,0,0,0,0,0])
-    home_rad = np.array([0,-1.3089,1.5707,0,0,0])
+    home_rad = np.array([0,-1.2589,1.5707,0,0,0])
     joint_names = ['joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6']  # 保持原有6个关节
     # Correction in degrees to align RVIZ with the real robot's reported state
     state_correction_deg = np.array([3, -72.0, 90.0, 0, 0, 0])
@@ -151,8 +151,8 @@ class JointTrajectoryActionServer(Node):
                 self.get_logger().info('夹爪已使能')
                 
                 # 设置夹爪到半开状态
-                self.my_driver.robot.hand.set_angle_with_speed_limit(100.0)
-                self.get_logger().info('夹爪初始化到半开状态(50%)')
+                self.my_driver.robot.hand.set_angle_with_speed_limit(-100.0)
+                self.get_logger().info('夹爪初始化到全开状态(50%)')
             else:
                 self.get_logger().warn('未检测到夹爪，跳过夹爪初始化')
         except Exception as e:
@@ -334,10 +334,38 @@ class JointTrajectoryActionServer(Node):
         return result
 
     def cleanup(self):
-        self.move_rad(self.home_rad)
-        #self.my_driver.robot.set_enable(0)
-        self.my_driver.robot.set_rgb_mode(0)
-        pass
+        import time
+        
+        try:
+            self.get_logger().info('开始清理资源...')
+            self.get_logger().info('机械臂正在回到home位置...')
+            
+            # 机械臂回到home位置
+            self.move_rad(self.home_rad)
+            
+            # 等待机械臂完成移动
+            self.get_logger().info('等待机械臂移动完成...')
+            time.sleep(3.0)  # 给足够时间让机械臂移动到位
+            
+            self.get_logger().info('机械臂已回到home位置')
+        except Exception as e:
+            self.get_logger().error(f'机械臂回home失败: {e}')
+        
+        try:
+            # 关闭RGB灯
+            self.my_driver.robot.set_rgb_mode(0)
+            self.get_logger().info('RGB灯已关闭')
+        except Exception as e:
+            self.get_logger().error(f'关闭RGB灯失败: {e}')
+        
+        try:
+            # 可选：禁用机械臂（如果需要的话取消注释）
+            # self.my_driver.robot.set_enable(0)
+            pass
+        except Exception as e:
+            self.get_logger().error(f'禁用机械臂失败: {e}')
+        
+        self.get_logger().info('资源清理完成')
 
 def main(args=None):
     rclpy.init(args=args)
@@ -345,10 +373,19 @@ def main(args=None):
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
-        pass
+        print("接收到中断信号，开始清理...")
+        # 在ROS context还有效时进行清理
+        try:
+            node.cleanup()
+        except Exception as e:
+            print(f"Cleanup error: {e}")
     finally:
-        node.cleanup()
-        rclpy.shutdown()
+        # 检查ROS是否还在运行，避免重复shutdown
+        try:
+            if rclpy.ok():
+                rclpy.shutdown()
+        except Exception as e:
+            print(f"Shutdown error: {e}")
 
 if __name__ == '__main__':
     main()
