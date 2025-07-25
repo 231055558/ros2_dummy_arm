@@ -10,8 +10,8 @@
   |   PARAMS   | `current_limit` | `acceleration` | `dce_kp` | `dce_kv` | `dce_ki` | `dce_kd` |
   | ---------- | --------------- | -------------- | -------- | -------- | -------- | -------- |
   | **Joint1** | 2               | 30             | 1000     | 80       | 200      | 250      |
-  | **Joint2** | 2               | 30             | 1000     | 80       | 200      | 200      |
-  | **Joint3** | 2               | 30             | 1500     | 80       | 200      | 250      |
+  | **Joint2** | 3               | 30             | 1000     | 80       | 200      | 200      |
+  | **Joint3** | 3               | 30             | 1500     | 80       | 200      | 250      |
   | **Joint4** | 2               | 30             | 1000     | 80       | 200      | 250      |
   | **Joint5** | 2               | 30             | 1000     | 80       | 200      | 250      |
   | **Joint6** | 2               | 30             | 1000     | 80       | 200      | 250      |
@@ -310,7 +310,8 @@ private:
     float jointSpeed = DEFAULT_JOINT_SPEED;
     float jointSpeedRatio = 1;
 //    DOF6Kinematic::Joint6D_t dynamicJointSpeeds = {1, 1, 1, 1, 1, 1};
-    DOF6Kinematic::Joint6D_t dynamicJointSpeeds = {0.5f, 0.5f, 0.5f, 1.5f, 1.5f, 1.5f};
+//    DOF6Kinematic::Joint6D_t dynamicJointSpeeds = {0.5f, 0.5f, 0.5f, 1.5f, 1.5f, 1.5f};
+    DOF6Kinematic::Joint6D_t dynamicJointSpeeds = {0.8f, 1.2f, 1.2f, 1.5f, 1.5f, 1.5f};  // ✅ 提高J2,J3速度比例
     DOF6Kinematic* dof6Solver;
     bool isEnabled = false;
     bool isRGBEnabled = true;

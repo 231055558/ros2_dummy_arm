@@ -14,14 +14,25 @@ import dummy_controller.dummy_cli_tool.ref_tool
 class JointTrajectoryActionServer(Node):
     
     my_driver = None
-    rad_volumn_diff = np.array([-0.05236,0,1.57079,0,0,0])
-    rad_direct_diff = np.array([1,1,1,1,-1,1])
+    rad_volumn_diff = np.array([-0.05236,-0.05236,1.57079,0,0,0])
+    rad_direct_diff = np.array([1,1,1,1,-1,-1])
     pai = 3.1415926
     ready_rad = np.array([0,0,0,0,0,0])
     home_rad = np.array([0,-1.3089,1.5707,0,0,0])
     joint_names = ['joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6']
     # Correction in degrees to align RVIZ with the real robot's reported state
-    state_correction_deg = np.array([3, -73.0, 90.0, 0, 0, 0])
+    state_correction_deg = np.array([3, -67.0, 90.0, 0, 0, 0])
+    
+    # # ✅ 电流限制配置 (单位: A)
+    # current_limits = {
+    #     'joint_1': 1.5,  # Joint1电流限制
+    #     'joint_2': 3.0,  # Joint2电流限制 (负载最大)
+    #     'joint_3': 3.0,  # Joint3电流限制
+    #     'joint_4': 1.2,  # Joint4电流限制
+    #     'joint_5': 1.2,  # Joint5电流限制
+    #     'joint_6': 1.0,  # Joint6电流限制
+    #     'hand': 0.6      # 夹爪电流限制
+    # }
 
     def __init__(self):
         super().__init__('dummy_arm_controller_real')
@@ -35,6 +46,10 @@ class JointTrajectoryActionServer(Node):
         self.my_driver.robot.set_enable(1)
         self.my_driver.robot.set_rgb_mode(4)  #green light is ready
         self.my_driver.robot.set_command_mode(0) # Set to position control mode
+        
+        # # ✅ 设置电流限制
+        # self.setup_current_limits()
+        
         self.move_rad(self.ready_rad)
         self._action_server = ActionServer(
             self,
@@ -44,6 +59,42 @@ class JointTrajectoryActionServer(Node):
         )
         self.joint_state_publisher = self.create_publisher(JointState, 'joint_states', 10)
         self.joint_state_timer = self.create_timer(0.1, self.publish_joint_states)
+
+    def setup_current_limits(self):
+        """
+        设置机械臂各关节和夹爪的电流限制
+        """
+        try:
+            self.get_logger().info('设置电流限制...')
+            
+            # 设置各关节电流限制
+            for joint_name, current_limit in self.current_limits.items():
+                if joint_name == 'hand':
+                    # 设置夹爪电流限制
+                    if hasattr(self.my_driver.robot, 'hand'):
+                        if hasattr(self.my_driver.robot.hand, 'set_current'):
+                            self.my_driver.robot.hand.set_current(current_limit)
+                            self.get_logger().info(f'夹爪电流设置为: {current_limit}A')
+                        elif hasattr(self.my_driver.robot.hand, 'set_current_limit'):
+                            self.my_driver.robot.hand.set_current_limit(current_limit)
+                            self.get_logger().info(f'夹爪电流限制设置为: {current_limit}A')
+                        else:
+                            self.get_logger().warn('夹爪不支持电流设置')
+                    else:
+                        self.get_logger().warn('未检测到夹爪')
+                else:
+                    # 设置关节电流限制
+                    joint_obj = getattr(self.my_driver.robot, joint_name, None)
+                    if joint_obj and hasattr(joint_obj, 'set_current_limit'):
+                        joint_obj.set_current_limit(current_limit)
+                        self.get_logger().info(f'{joint_name} 电流限制设置为: {current_limit}A')
+                    else:
+                        self.get_logger().warn(f'{joint_name} 不支持电流限制设置')
+            
+            self.get_logger().info('电流限制设置完成!')
+            
+        except Exception as e:
+            self.get_logger().error(f'设置电流限制时出错: {e}')
 
     def publish_joint_states(self):
         """

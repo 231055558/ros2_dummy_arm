@@ -224,8 +224,10 @@ void DummyRobot::CalibrateHomeOffset()
     // 4.Apply Home-Offset the second time
     motorJ[ALL]->ApplyPositionAsHome();
     osDelay(500);
-    motorJ[2]->SetCurrentLimit(1);
-    motorJ[3]->SetCurrentLimit(1);
+    // motorJ[2]->SetCurrentLimit(1); 
+    // motorJ[3]->SetCurrentLimit(1);
+    motorJ[2]->SetCurrentLimit(3);  // ✅ 提高J2电流限制到3A
+    motorJ[3]->SetCurrentLimit(3);  // ✅ 提高J3电流限制到3A  
     osDelay(500);
 
     Reboot();
