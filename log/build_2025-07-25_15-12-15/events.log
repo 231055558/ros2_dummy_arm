@@ -1,0 +1,10 @@
+[0.000000] (-) TimerEvent: {}
+[0.000109] (-) JobUnselected: {'identifier': 'Core-STM32F4-fw'}
+[0.000131] (-) JobUnselected: {'identifier': 'dummy-ros2_description'}
+[0.000145] (-) JobUnselected: {'identifier': 'dummy_controller'}
+[0.000158] (-) JobUnselected: {'identifier': 'dummy_moveit_config'}
+[0.000170] (-) JobUnselected: {'identifier': 'pymoveit2'}
+[0.000183] (-) JobUnselected: {'identifier': 'realsense2_camera'}
+[0.000196] (-) JobUnselected: {'identifier': 'realsense2_camera_msgs'}
+[0.000208] (-) JobUnselected: {'identifier': 'realsense2_description'}
+[0.000348] (-) EventReactorShutdown: {}
