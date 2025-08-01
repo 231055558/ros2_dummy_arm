@@ -38,7 +38,7 @@ class JointTrajectoryActionServer(Node):
         'joint_4': 1.2,  # Joint4电流限制
         'joint_5': 1.5,  # Joint5电流限制
         'joint_6': 1.2,  # Joint6电流限制
-        'hand': 1.2      # 夹爪电流限制
+        'hand': 0.5      # 夹爪电流限制
     }
 
     def __init__(self):

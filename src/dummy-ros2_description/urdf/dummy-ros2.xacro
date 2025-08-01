@@ -150,9 +150,52 @@
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.013 0.2465 -0.3545" rpy="0 0 0"/>
+    <origin xyz="0.013 0.2465 -0.3545" rpy="0 0 3.141592654"/>
     <geometry>
       <mesh filename="file://$(find dummy-ros2_description)/meshes/link6_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- 夹爪链接 -->
+<link name="gripper_left_link">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.05"/>
+    <inertia ixx="1e-5" iyy="1e-5" izz="1e-5" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find dummy-ros2_description)/meshes/gripper.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find dummy-ros2_description)/meshes/gripper.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper_right_link">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.05"/>
+    <inertia ixx="1e-5" iyy="1e-5" izz="1e-5" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find dummy-ros2_description)/meshes/gripper.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find dummy-ros2_description)/meshes/gripper.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -163,8 +206,8 @@
   <child link="link1_1_1"/>
   <axis xyz="0.0 0.0 1.0"/>
   <limit 
-    lower="-3.141593"
-    upper="3.141593"
+    lower="-2.967059728"
+    upper="2.967059"
     effort="150"
     velocity="3.15"/>
 </joint>
@@ -227,6 +270,31 @@
     upper="3.14"
     effort="150"
     velocity="3.15" />
+</joint>
+
+<!-- 夹爪关节 -->
+<joint name="joint7" type="prismatic">
+  <origin xyz="-0.011000 0.232000 0.353000" rpy="3.141592654 0.000000 0.000000"/>
+  <parent link="link6_1_1"/>
+  <child link="gripper_left_link"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit
+    lower="0.000000"
+    upper="0.025000"
+    effort="50"
+    velocity="0.5"/>
+</joint>
+
+<joint name="joint8" type="prismatic">
+  <origin xyz="0.011000 0.232000 -0.354500" rpy="0.000000 0.000000 3.141590"/>
+  <parent link="link6_1_1"/>
+  <child link="gripper_right_link"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+  <limit
+    lower="-0.025000"
+    upper="0.000000"
+    effort="50"
+    velocity="0.5"/>
 </joint>
 
 </robot>

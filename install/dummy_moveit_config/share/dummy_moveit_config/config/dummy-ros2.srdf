@@ -40,4 +40,10 @@
     <disable_collisions link1="link3_1_1" link2="link6_1_1" reason="Never"/>
     <disable_collisions link1="link4_1_1" link2="link5_1_1" reason="Adjacent"/>
     <disable_collisions link1="link5_1_1" link2="link6_1_1" reason="Adjacent"/>
+    <!-- 夹爪碰撞配置 -->
+    <disable_collisions link1="link6_1_1" link2="gripper_left_link" reason="Adjacent"/>
+    <disable_collisions link1="link6_1_1" link2="gripper_right_link" reason="Adjacent"/>
+    <disable_collisions link1="gripper_left_link" link2="gripper_right_link" reason="Never"/>
+    <disable_collisions link1="link5_1_1" link2="gripper_left_link" reason="Never"/>
+    <disable_collisions link1="link5_1_1" link2="gripper_right_link" reason="Never"/>
 </robot>
